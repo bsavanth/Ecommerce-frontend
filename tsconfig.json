@@ -20,13 +20,14 @@
     "module": "es2020",
     "lib": [
       "es2020",
-      "dom"
+      "dom", "ES5"
     ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
+    "strictPropertyInitialization": false,
     "strictTemplates": true
   }
 }
