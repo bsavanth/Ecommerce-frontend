@@ -16,6 +16,7 @@ export class ProductCategoryMenuComponent implements OnInit {
   ngOnInit(): void {
 
     this.listProductCategories();
+
   }
 
   listProductCategories()
@@ -24,9 +25,9 @@ export class ProductCategoryMenuComponent implements OnInit {
     this.productService.getProductCategories().subscribe(
 
       data => {
-        this.productCategories = data;;
+        this.productCategories = data;
       }
     );
-    console.log(this.productCategories.length)
+    
   }
 }
