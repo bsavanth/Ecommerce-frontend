@@ -1,29 +1,33 @@
 <div class="main-content">
-    <div class="section-content section-content-p30">
+  <div class="section-content section-content-p30">
 
-        <!-- <h4>{{currentCategoryName}}</h4>
-        <hr> -->
-        <div class="container-fluid">
- 
-            <div class="row">
-                
-                
+    <!-- <h4>{{currentCategoryName}}</h4>
+    <hr> -->
+    <div class="container-fluid">
 
-                <div *ngFor="let product of products" class="col-md-3">
+      <div class="row">
 
-                    <div class="product-box">
-                        <img src="{{product.imageUrl}}" class="img-responsive">
-                        <h1>{{product.name}}</h1>
-                        <div class = "price">
-                            {{product.unitPrice | currency:'USD'}}
-                        </div>
-                        <a href="#" class = "primary-btn">Add to cart</a>
-                    </div>
-                </div>
 
-                <div *ngIf = "products?.length==0" class = "alert alert-warning col-md-12" role = "alert">No products found</div>
+        <div *ngFor="let product of products" class="col-md-3">
 
+          <div class="product-box">
+            <a routerLink="/products/{{product.id}}">
+              <img src="{{product.imageUrl}}" class="img-responsive">
+            </a>
+
+            <a routerLink="/products/{{product.id}}">
+              <h1>{{product.name}}</h1>
+            </a>
+            <div class="price">
+              {{product.unitPrice | currency:'USD'}}
             </div>
+            <a href="#" class="primary-btn">Add to cart</a>
+          </div>
         </div>
+
+        <div *ngIf="products?.length==0" class="alert alert-warning col-md-12" role="alert">No products found</div>
+
+      </div>
     </div>
+  </div>
 </div>`

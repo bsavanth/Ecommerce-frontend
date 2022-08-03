@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Product } from 'src/app/common/product';
-import { ProductService } from 'src/app/services/product.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Product} from 'src/app/common/product';
+import {ProductService} from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -15,7 +15,8 @@ export class ProductListComponent implements OnInit {
   currentCategoryName!: string;
   searchMode!: boolean;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
 
@@ -33,24 +34,23 @@ export class ProductListComponent implements OnInit {
     if (this.searchMode) {
 
       this.handleSearchProducts();
-    }
-    else{
-    this.handleListProducts();
+    } else {
+      this.handleListProducts();
     }
   }
 
-  
+
   handleSearchProducts() {
 
-   
-    const theKeyword: string  = String(this.route.snapshot.paramMap.get('keyword'));
-    
+
+    const theKeyword: string = String(this.route.snapshot.paramMap.get('keyword'));
+
     this.productService.searchProducts(theKeyword).subscribe(
       data => {
         this.products = data;
       }
     )
-    
+
     console.log(this.products);
 
   }
@@ -62,16 +62,13 @@ export class ProductListComponent implements OnInit {
 
     if (hasCategoryName) {
       this.currentCategoryName = String(this.route.snapshot.paramMap.get('name'));
-    }
-    else {
+    } else {
       this.currentCategoryName = "Books";
     }
 
     if (hasCategoryId) {
       this.currentCategoryId = Number(this.route.snapshot.paramMap.get('id'));
-    }
-
-    else {
+    } else {
 
       this.currentCategoryId = 1;
 
@@ -85,7 +82,6 @@ export class ProductListComponent implements OnInit {
 
 
   }
-
 
 
 }
