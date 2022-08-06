@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {Product} from '../common/product';
 import {map} from 'rxjs'
 import {ProductCategory} from '../common/product-category';
+import { NumberSymbol } from '@angular/common';
+import { NumberValueAccessor } from '@angular/forms';
 
 
 @Injectable({
@@ -17,6 +19,17 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) {
   }
+
+
+
+  getProductListPaginate(thePage:number, thePageSize:number, theCategoryId: Number): Observable<GetResponseProducts> {
+
+    const url = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
+                +`&page=${thePage}&size=${thePageSize}`;
+    return this.httpClient.get<GetResponseProducts>(url);
+  }
+
+
 
   getProductList(theCategoryId: Number): Observable<Product[]> {
 
@@ -58,6 +71,14 @@ interface GetResponseProducts {
 
   _embedded: {
     products: Product[];
+  },
+
+  page:{
+    size:number,
+    totalElements:number,
+    totalPages:number,
+    number:number
+
   }
 
 }

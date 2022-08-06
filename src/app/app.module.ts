@@ -8,6 +8,7 @@ import {ProductService} from './services/product.service';
 import {ProductCategoryMenuComponent} from './Components/product-category-menu/product-category-menu.component';
 import {SearchComponent} from './Components/search/search.component';
 import {ProductDetailsComponent} from './Components/product-details/product-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Routes = [
